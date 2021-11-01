@@ -128,6 +128,159 @@
     width: 100%;
 }
 
+/* ------------------------------ */
+/* MODAL */
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .6);
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+.modal-show{
+    visibility: visible;
+    opacity: 1;
+}
+.modal{
+    position: relative;
+    width: 740px;
+    height: 380px;
+    border-radius: 10px;
+    background: #FFC2EE;
+}
+
+.modal-info{
+    display: flex;
+}
+
+.narumodal{
+    width: 320px;
+    height: 380px;
+}
+
+.modal-info__inner{
+    position: relative;
+    padding: 70px 40px 0 40px
+}
+
+.modal-info__inner-h3{
+    font-family: 'Gang of Three';
+    color: #232043;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.modal-info__inner-p{
+    font-family: 'Roboto';
+    color: #232043;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+
+.inputEmail{
+    width: 339px;
+    height: 40px;
+    margin-bottom: 5px;
+    padding: 8px 16px;
+    background: #FFF;
+    border: 1px solid #9C98C8;
+    border-radius: 4px;
+    font-family: 'Roboto';
+}
+.inputEmail:focus{
+    outline: 2px solid #232043;
+    border: none;
+}
+
+
+.modal-btn{
+    width: 160px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    color: #232043;
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 20px;
+    border: 2px solid #232043;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(35, 32, 67, .05);
+    transition: .25s;
+}
+.modal-btn:hover{
+    background: rgba(35, 32, 67, .1);
+}
+
+.text-validation{
+    display: block;
+    font-family: 'Roboto';
+    font-size: 10px;
+    margin-bottom: 40px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.text-validation--show{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-btn-no{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;;
+
+}
+
+
+/* TOASTER  */
+
+
+.toast{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    background: #FBCD57;
+    color: #232043;
+    font-family: 'Roboto';
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+
+.toast--show{
+    visibility: visible;
+    opacity: 1;
+}
+
+
 
 /* --------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
