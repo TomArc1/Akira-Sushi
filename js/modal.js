@@ -82,7 +82,7 @@ form.addEventListener('submit', e => {
     }
 })
 
-// TOASTER Y LCTMD ALL BOYS
+// TOASTER APLICACION
 
 const toast = document.getElementById('toast')
 let getToast = sessionStorage.getItem("modalShowFirst");
