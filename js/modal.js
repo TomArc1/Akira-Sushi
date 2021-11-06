@@ -15,7 +15,7 @@ modalData.innerHTML = `
                 <img src="./assets/icons/as-cross.svg">
             </button>
             <form id="form">
-                <input type="email" class="inputEmail" id="inputEmail" placeholder="Ingresa tu email"> <br>
+                <input name="email" type="email" class="inputEmail" id="inputEmail" placeholder="Ingresa tu email"> <br>
                 <span id="text-validation" class="text-validation">El email no es válido</span>
                 <button type="submit" id="modal-btn" class="modal-btn" for="form">Suscribirse</button><br>
             </form>
@@ -25,6 +25,10 @@ modalData.innerHTML = `
 `;
 
 modal.append(modalData);
+
+
+
+
 
 // CONSTRUCCIÓN DE TOASTER
 const toaster = document.getElementById('toaster');
@@ -41,9 +45,12 @@ toaster.append(toasterInner);
 
 
 
+
+
 // APERTURA Y CIERRE DEL MODAL 
 const rechazoBtn = document.getElementById('modal-btn-no');
 const suscribirBtn = document.getElementById('modal-btn');
+
 
 
 if(sessionStorage.getItem("modalShowFirst") == null){
@@ -57,7 +64,13 @@ rechazoBtn.addEventListener('click', () => {
     sessionStorage.setItem("modalShowFirst", false);   
 })
 
+modalContainer.addEventListener('click', (e) =>{
+    rechazoBtn.click();
+})
 
+modal.addEventListener('click', (e) =>{
+    e.stopPropagation()
+})
 
 
 // VALIDACION DEL EMAIL
@@ -67,11 +80,9 @@ const textValidation = document.getElementById('text-validation');
 const pattern = / ^[^ ]+@[^ ]+\.[a-z]{2,3}$ / ;
 
 form.addEventListener('submit', e => {
-    // e.preventDefault();
-    let warnings = "";
-    let enter = false ;
+    // e.preventDefault()
+
     let regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ; 
-    console.log(regEx.test(inputEmail.value))
     if(!regEx.test(inputEmail.value)){
         textValidation.classList.add('text-validation--show');
         e.preventDefault()
@@ -87,16 +98,21 @@ form.addEventListener('submit', e => {
 const toast = document.getElementById('toast')
 let getToast = sessionStorage.getItem("modalShowFirst");
 
-
-if(getToast){
+const showModalOneTime = () =>{
     window.addEventListener('load', () =>{
         toast.classList.add('toast--show');
-    } )
+    } )   
+    setTimeout(() =>{
+        toast.classList.remove('toast--show');
+    }, 2000 )
+
+    sessionStorage.setItem("modalShowFirst", "Ya registrado");
 }
 
-setTimeout(() =>{
-    toast.classList.remove('toast--show')
-}, 2000 )
+if(getToast != "Ya registrado" && getToast != null){
+    showModalOneTime()
+} 
+
 
 
 
