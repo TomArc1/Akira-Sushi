@@ -58,7 +58,7 @@ const shopLogoAd = document.createElement('div');
 const notice = () => {
     const add = localStorage.getItem("CarritoNov")
     if(add !== ""){
-        shopLogoAd.innerHTML = `<div id="shopLogoAdInner" class="shopLogoAdInner">!</div>`;
+        shopLogoAd.innerHTML = `<div id="shopLogoAdInner" class="shopLogoAddInner">!</div>`;
         shopLogo.append(shopLogoAd);
     }    
 }

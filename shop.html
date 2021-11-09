@@ -22,38 +22,18 @@
                     </div>
                     <div id="selection-list" class="selection-list">
 
-                        <!-- <div class="sushi-selected">
-                            <div class="shop-selected__photo">
-                                <img class="shop-selected__photo-img" src="./assets/images/sushi-images/image9.png">
-                            </div>
-                            <div class="shop-selected__info">
-                                <p class="shop-selected__info-name">Bomba Afrodita</p>
-                                <p class="shop-selected__info-units">5 Unidades</p>
-                            </div>
-                            <div class="shop-selected__many">
-                                <button class="shop-selected__many-minus">
-                                    <img src="./assets/icons/as-minus.svg">
-                                </button>
-                                <input type="text" class="shop-selected__many-show">
-                                <button class="shop-selected__many-plus">
-                                    <img src="./assets/icons/as-plus.svg">
-                                </button>
-                            </div>
-                            <p class="shop-selected__many-price">$580</p>
-                            <button class="sushi-selected-trash">
-                                <img src="./assets/icons/as-trash.svg">
-                            </button>
-                        </div>  -->
-
-                        <!-- askdjhsakd -->
+                        <!-- js -->
 
                     </div>
                     <div class="have-cupon">
                         <img class="have-cupon-img" src="./assets/icons/as-cupon.svg">
-                        <p class="have-cupon-p">¿Tienes un cupon de descuento?</p>
+                        <p class="have-cupon-p">¿Tienes un cupón de descuento?</p>
                     </div>
                     <div class="enter-cupon">
-                        <input id="enter-cupon-input" class="enter-cupon-input" type="text" placeholder="Ingrese nombre de cupón">
+                        <div class="enter-cupon__inner">
+                            <input id="enter-cupon-input" class="enter-cupon__inner-input" type="text" placeholder="Ingrese nombre de cupón">
+                            <span id="span-warning" class="enter-cupon__inner-warning">Cupón ya ingresado!</span>
+                        </div>
                         <button id="enter-cupon-button" class="enter-cupon-button">AÑADIR</button>
                     </div>
                 </div>
@@ -69,7 +49,7 @@
                     </div>
                     <div class="shipping-cost">
                         <p class="shipping-cost-p">Costo de envío</p>
-                        <div class="shipping-cost-price"></div>
+                        <div class="shipping-cost-price">--</div>
                     </div>
                     <div class="active-cupon">
                         <div class="active-cupon__left">
@@ -79,14 +59,16 @@
                         <div id="active-cupon__right-price" class="active-cupon__right-price"></div>
                     </div>
                     <div class="total">
-                        <p class="total-p">Total</p>
-                        <div class="total-price"></div>
+                        <p class="total-p">TOTAL</p>
+                        <div id="total-price" class="total-price"></div>
                     </div>
-                    <button class="final-pur">FINALIZAR COMPRA</button>
+                        <button id="final-pur" class="final-pur">
+                            <a class="final-pur__link" href="personaldata.html"> FINALIZAR COMPRA</a>
+                        </button>
                     <div class="purchase-info">
                         <div class="purchase-info__sup">
                             <img class="purchase-info__sup-img" src="./assets/icons/as-cards.svg">
-                            <p class="purchase-info__sup-p">Podrás elegir la forma de pago en el forulario de compra</p>
+                            <p class="purchase-info__sup-p">Podrás elegir la forma de pago en el formulario de compra</p>
                         </div>
                         <div class="purchase-info__inf">
                             <img class="purchase-info__inf-img" src="./assets/icons/as-truck.png">

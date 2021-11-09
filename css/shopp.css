@@ -139,10 +139,10 @@
 
 .enter-cupon{
     display: flex;
-    align-items: center;
+    align-items: flex-start;;
 }
 
-.enter-cupon-input{
+.enter-cupon__inner-input{
     width: 425px;
     height: 40px;
     padding: 8px 16px;
@@ -150,6 +150,16 @@
     border: 1px solid #232043;
     border-radius: 4px;
     margin-right: 8px;
+}
+.enter-cupon__inner-warning{
+    font-family: 'Roboto';
+    color: #232043;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.show--spanWarning{
+    visibility: visible;
 }
 
 .enter-cupon-button{
@@ -202,7 +212,6 @@
 .subtotal-price, .shipping-cost-price , .active-cupon__left-percentage , .active-cupon__right-price {
     width: 50px;
     height: 24px;
-    border: 1px solid black;
 }
 
 .active-cupon__left-p{
@@ -227,7 +236,6 @@
 .total-price{
     width: 55px;
     height: 27px;
-    border: 1px solid black;
 }
 
 .final-pur{
@@ -235,13 +243,18 @@
     height: 40px;
     padding: 10px 57px;
     background: #232043;
-    color: #fff;
     border-style: none;
     border-radius: 4px;
     cursor: pointer;
     transition: .25s ease-in-out;
     margin-bottom: 32px;
 }
+
+.final-pur__link{
+    color: #fff;
+    text-decoration: none;
+}
+
 
 .final-pur:hover{
     opacity: .9;
