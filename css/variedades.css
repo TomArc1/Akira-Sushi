@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Gang of Three';
+    src: url("../assets/fonts/go3.ttf");
+}
+
+body{
+    padding-top: 60px;
+}
+
+.header{
+    position: fixed;
+    z-index: 100000;
+    width: 100%;
+    height: 60px;
+    padding-left: 142px;
+    padding-right: 48px;
+    margin-top: -60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232043;
+}
+
+.logo{
+    font-family: 'Gang of Three';
+    font-family: 22px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.logo-link{
+    text-decoration: none;
+    color: #FBCD57;
+    cursor: pointer;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 622px;
+    min-width: 400px;
+}
+
+.menu__item{
+    list-style: none;
+}
+
+.menu__item-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-family: 16px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.shopLogo{
+    position: relative;
+}
+
+.shopLogo-img{
+    width: 24px;
+    height: 24px;
+}
+
+.shopLogoAddInner{
+    position: absolute;
+    bottom: 1px;
+    right: -5px;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background: red;
+}
+
+/* --------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------SECTION 1----------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------- */
+
+.section-1__sup{
+    width: 100%;
+    height: 320px;
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFC2EE;
+}
+.section-1__sup-img{
+    width: 76px;
+}
+
+.section-1__sup-middle{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sup-middle-img-wrapper{
+    width: 524px;
+    position: relative;    
+}
+
+.sup-middle-img{
+    width: 100%;
+    transform: translateY(30px);
+}
+
+.sup-middle-texts{
+    height: 176px;
+}
+
+.sup-middle-texts-p1-wrapper{
+    width: 68px;
+    height: 24px;
+    background-color: #D73400;
+    padding: 0 7px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.sup-middle-texts-p1{
+    font-family: 'Roboto';
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.sup-middle-texts-p2{
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: #232043;
+    margin-bottom: 4px;
+
+}
+.sup-middle-texts-h2{
+    font-family: 'Gang of Three';
+    color: #232043;
+    font-size: 60px;
+    line-height: 55px;
+}
+
+.section-1__inf{
+    width: 100%;
+    height: 200px;
+    padding: 16px 155px;
+    display: flex;
+    align-items: center;
+    background-color: #3A3663;
+}
+.section-1__inf-textintro{
+    font-family: 'Roboto';
+    font-size: 20px;
+    line-height: 28px;
+    color: #FBCD57;
+    margin-right: 13%;
+
+}
+
+.section-1__inf-middle{
+    width: 510px;
+    height: 136px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.s1inf-middle-one, .s1inf-middle-two, .s1inf-middle-three{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.s1inf-middle-inner-img{
+    width: 120px;
+    margin-bottom: 14px;
+}
+.s1inf-middle-inner-text{
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #fff;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------SECTION 2----------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------- */
+
+.section-2{
+    width: 100%;
+    min-height: 30vw;
+    background-color: #232043;
+}
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------FOOTER----------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------- */
+
+.footer{
+    width: 100%;
+    height: 151px;
+    background: #3A3663;
+    padding: 0 142px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__inner-left{
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foot-menu__item{
+    list-style: none;
+}
+.foot-menu__item-link{
+    text-decoration: none;
+    font-family: 'Roboto';
+    color: #FFF;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.footer__inner-info{
+    width: 246px;
+    display: flex;
+    flex-direction: column;
+}
+
+.foot-info__inner-sup{
+    width: 168px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.foot-sm-img{
+    width: 24px;
+    height: 24px;
+}
+
+.foot-info__inner-inf-p{
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: #FFF;
+    text-align: end;
+}
