@@ -55,7 +55,11 @@
     font-family: 'Roboto';
     font-size: 14px;
     margin-bottom: 24px;
+}
 
+.backtomenu-link{
+    text-decoration: none;
+    color: #232043;
 }
 
 .selection-list{
@@ -141,9 +145,18 @@
     margin-bottom: 16px;
 }
 
+.byebyeCupon{
+    visibility: hidden;
+}
+
 .enter-cupon{
     display: flex;
     align-items: flex-start;;
+}
+
+.enter-cupon__inner{
+    display: flex;
+    flex-direction: column;
 }
 
 .enter-cupon__inner-input{
@@ -309,7 +322,16 @@
     margin-bottom: 24px;
 }
 
-.bs1-grid-container{
+.bs1-grid-container__form{
+    width: 593px;
+    height: 236px;
+    display: grid;
+    grid-gap: 17px;
+    grid-template-columns: repeat(2,290px);
+    margin-bottom: 32px;
+}
+
+.bs1-grid-container__form{
     width: 593px;
     height: 236px;
     display: grid;
@@ -332,6 +354,8 @@
     padding: 8px 16px;
     border-radius: 8px;
     border: 1px solid #dadada;
+    font-family: 'Roboto';
+    font-size: 14px;
 }
 
 .bs1-grid-cell:nth-child(2),.bs1-grid-cell:nth-child(6){
@@ -443,7 +467,10 @@
     border: 1px solid rgba(35, 32, 67, .2);
     border-radius: 6px;
     margin-bottom: 8px;
+    cursor: pointer;
 }
+
+
 .datosEnvio-container__btn{
     margin-bottom: 32px;
 }
@@ -460,11 +487,18 @@
     height: 30px;
     border: 1px solid black;
 }
+
+.envio-btn-radio{
+    visibility: hidden;
+}
 .envio-btn-circle{
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: 1px solid rgba(35, 32, 67, .2);
+}
+.border-red{
+    border: 5px solid red;
 }
 
 .envio-btn-p{
@@ -476,6 +510,10 @@
 }
 
 .datosEnvio-container-optional{
+    display: none;
+}
+
+.disp-gri{
     display: grid;
     grid-template-columns: repeat(2, 290px);
     grid-gap: 17px;

@@ -19,11 +19,10 @@ const niji = new AkiraCarta ('./assets/images/akira-carta/niji.png', 104, 'Roll 
 const clerck = new AkiraCarta ('./assets/images/akira-carta/clerck.png', 105, 'Roll Clerck 5u.', 'Roll Clerck', 'Roll relleno de salmón cocido con miel y mostaza, queso phila y batata.', true, false, false, 5, 349);
 const calafate = new AkiraCarta('./assets/images/akira-carta/calafate.png', 106, 'Roll Calafate 5u.', 'Roll Calafate', 'Roll de tamago rellno de arroz, philadelphia y palta', true, false, false, 5, 474);
 const newYork = new AkiraCarta('./assets/images/akira-carta/newYork.png', 107, 'Roll New York 5u.', 'Roll New York', true, false, false, 5, 349);
-const valencia = new AkiraCarta ('./assets/images/akira-carta/valencia.png', 108, 'Valencia 5u', 'Valencia', 'Roll relleno de tomates secos, rúcula fresca, y cebolla caramelizada.', true, false, false, 5, 299);
-const tora = new AkiraCarta ('./assets/images/akira-carta/tora.png', 109, 'Roll Tora 5u', 'Roll Tora', 'Piezas relleno de langostinos rebozados con palta', true, false, false, 5, 344);
-const newYorkHot = new AkiraCarta ('./assets/images/akira-carta/newYorkHot.png', 110,'Roll New York 5u', 'Roll New York', 'Roll rebozado relleno de salmón, arroz, palta y queso Phila.', true, false, false, 5, 364);
-const firenze = new AkiraCarta ('./assets/images/akira-carta/firenze.png', 111,'Roll Firenze 5u.', 'Roll Firenze', 'Roll rebozado relleno de salmon grill, coronado con mayo de palta.', true, false, false, 5, 339);
-const bologna = new AkiraCarta ('./assets/images/akira-carta/bologna.png', 112, 'Bologna Roll 5u.', 'Bologna Roll', 'Roll rebozado relleno de langostinos salteado con pimentón y philadelphia.', true, false, false, 5, 564 );
+const tora = new AkiraCarta ('./assets/images/akira-carta/tora.png', 108, 'Roll Tora 5u', 'Roll Tora', 'Piezas relleno de langostinos rebozados con palta', true, false, false, 5, 344);
+const newYorkHot = new AkiraCarta ('./assets/images/akira-carta/newYorkHot.png', 109,'Roll New York 5u', 'Roll New York', 'Roll rebozado relleno de salmón, arroz, palta y queso Phila.', true, false, false, 5, 364);
+const firenze = new AkiraCarta ('./assets/images/akira-carta/firenze.png', 110,'Roll Firenze 5u.', 'Roll Firenze', 'Roll rebozado relleno de salmon grill, coronado con mayo de palta.', true, false, false, 5, 339);
+const bologna = new AkiraCarta ('./assets/images/akira-carta/bologna.png', 111, 'Bologna Roll 5u.', 'Bologna Roll', 'Roll rebozado relleno de langostinos salteado con pimentón y philadelphia.', true, false, false, 5, 564 );
 
 
 const pokeSalmonFresh = new AkiraCarta('./assets/images/akira-carta/pokeSalmonFresh.png', 201, 'Poke Salmón Fresh', 'Poke Salmon Fresh', 'Fresca ensalada de salmón, eneldo fresco, reyadura de limón', false, true, false, 1, 699);

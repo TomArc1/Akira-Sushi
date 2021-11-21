@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <title>Akira Sushi - Locales</title>
     <link rel="stylesheet" href="./css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="./css/lightgallery.css"> 
     <link rel="stylesheet" href="./css/locales.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script defer src="./js/locales.js"></script>
@@ -27,18 +28,39 @@
     </header>
 
     <main class="main">
-        <h1>Nuestros Locales</h1>
-        <section class="section1">
-            <div id="local1">
+        <h1 class="main-h1">Nuestros Locales</h1>
+        <section class="section-1">
+            <div id="local1" class="local1">
 
             </div>
         </section>
-        <section class="section2">
-            <div id="local2">
+
+        <div id="lightgallery">
+            <a href="./assets/images/imglocal.jpeg">
+                <img src="./assets/images/imglocal.jpeg" />
+            </a>
+            <a href="./assets/images/imglocal1.jpeg">
+                <img src="./assets/images/imglocal1.jpeg" />
+            </a>
+            <a href="./assets/images/imglocal2.jpeg">
+                <img src="./assets/images/imglocal2.jpeg" />
+            </a>
+            <a href="./assets/images/imglocal3.jpeg">
+                <img src="./assets/images/imglocal3.jpeg" />
+            </a>
+            <a href="./assets/images/imglocal4.jpeg">
+                <img src="./assets/images/imglocal4.jpeg" />
+            </a>
+        </div>
+
+
+
+        <section class="section-2">
+            <div id="local2" class="local2">
             </div>
         </section>
     </main>
-    
+
     <footer class="footer">
         <div class="footer__inner-left">
         <h3 class="logo"><a href="index.html" class="logo-link">Akira Sushi</a></h3>
@@ -60,5 +82,10 @@
                 <p class="foot-info__inner-inf-p">Desarrollado por Tomás Arcaria<br>Diseñado por Melisa Rinavera Henshaw</p></div>
         </div>
     </footer>
+
+    <script src="js/lightgallery.min.js"></script>
+    <script type="text/javascript">
+        lightGallery(document.getElementById('lightgallery')); 
+    </script>
 </body>
 </html>

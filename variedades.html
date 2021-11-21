@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/variedades.css">
+    <script defer src="./js/variedades.js" ></script>
     <title>Akira Sushi - Variedades</title>
 </head>
 <body>
@@ -16,9 +17,9 @@
         <h3 class="logo"><a href="index.html" class="logo-link">Akira Sushi</a></h3>
         <ul class="menu">
             <li class="menu__item"><a href="#" class="menu__item-link">Nosotros</a></li>
-            <li class="menu__item"><a href="#" class="menu__item-link">Variedades</a></li>
-            <li class="menu__item"><a href="#" class="menu__item-link">Mi carrito</a></li>
-            <li class="menu__item"><a href="#" class="menu__item-link">Locales</a></li>
+            <li class="menu__item"><a href="variedades.html" class="menu__item-link">Variedades</a></li>
+            <li class="menu__item"><a href="shop.html" class="menu__item-link">Mi carrito</a></li>
+            <li class="menu__item"><a href="locales.html" class="menu__item-link">Locales</a></li>
             <a id="shopLogo" class="shopLogo" href="shop.html"><img class="shopLogo-img" src="./assets/icons/as-shop.svg"></a>
         </ul>
     </header>
@@ -43,15 +44,15 @@
             <div class="section-1__inf">
                 <p class="section-1__inf-textintro" >NUESTROS <br> PLATOS</p>
                 <div class="section-1__inf-middle">
-                    <div class="s1inf-middle-one">
+                    <div id="cartaPiezas" class="s1inf-middle-one">
                         <img class="s1inf-middle-inner-img" src="./assets/images/variedades-piezas.png">
                         <p class="s1inf-middle-inner-text">PIEZAS</p>
                     </div>
-                    <div class="s1inf-middle-two">
+                    <div id="cartaSalads" class="s1inf-middle-two">
                         <img class="s1inf-middle-inner-img" src="./assets/images/variedades-salads.png">
                         <p class="s1inf-middle-inner-text">SUSHI SALADS</p>
                     </div>
-                    <div class="s1inf-middle-three">
+                    <div id="cartaPlatos" class="s1inf-middle-three">
                         <img class="s1inf-middle-inner-img" src="./assets/images/variedades-calientes.png">
                         <p class="s1inf-middle-inner-text">CALIENTES</p>
                     </div>
@@ -59,8 +60,10 @@
             </div>
 
         </section>
-        <section class="section-2">
+        <section id="section-2" class="section-2">
+            <div id="cardsContainer" class="cardsContainer">
 
+            </div>
         </section>
 
     </main>
