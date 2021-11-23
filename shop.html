@@ -39,181 +39,153 @@
                         </div>
                     </div>
 
-                    <!-- STEP1 -->
-                    <div class="innerDivStep1">
-                        <h4 class="bs1-title">Datos de contacto</h4>
-                        <div class="bs1-grid-container">
-                            <form id="formBuyStep1" class="bs1-grid-container__form">
-                                <div class="bs1-grid-cell">
-                                    <p class="bs1-grid-cell-text">Email</p>
-                                    <input type="email" id="inputEmail" class="bs1-grid-cell-input" placeholder="Ingresa tu email">
-                                </div>
-                                <div class="bs1-grid-cell">
-                                    <input type="checkbox" class="bs1-grid-cell-check">
-                                    <p class="bs1-grid-cell-checktext">Quiero recibir novedades por email</p>
-                                </div>
-                                <div class="bs1-grid-cell">
-                                    <p class="bs1-grid-cell-text">Nombre</p>
-                                    <input type="text" id="inputName" class="bs1-grid-cell-input" placeholder="Ingresa tu nombre">
-                                </div>
-                                <div class="bs1-grid-cell">
-                                    <p class="bs1-grid-cell-text">Apellido</p>
-                                    <input type="text" id="inputLastname" class="bs1-grid-cell-input" placeholder="Ingresa tu apellido">
-                                </div>
-                                <div class="bs1-grid-cell">
-                                    <p class="bs1-grid-cell-text">DNI</p>
-                                    <input type="text" id="inputDni" class="bs1-grid-cell-input" placeholder="00.000.000">
-                                </div>
-                                <div class="bs1-grid-cell">
-                                    <div class="bs1-grid-cell6">
-                                        <p class="bs1-grid-cell-text-area">Area</p>
-                                        <input type="text" id="inputArea" class="bs1-grid-cell-input-area" placeholder="00">
+                    <!-- FORMULARIO DE PAGO -->
+
+
+                    <!-- PARTE 1 -->
+                    <form id="formularioCompleto" name="formularioCompleto" class="disp-none">
+                        <div class="innerDivStep1">
+                            <h4 class="bs1-title">Datos de contacto</h4>
+                            <div class="bs1-grid-container__form">
+                                    <div class="bs1-grid-cell">
+                                        <p class="bs1-grid-cell-text">Email</p>
+                                        <input type="email" id="inputEmail" class="bs1-grid-cell-input" name="email" placeholder="Ingresa tu email" required>
                                     </div>
-                                    <div class="bs1-grid-cell6">
-                                        <p class="bs1-grid-cell-text">Teléfono</p>
-                                        <input type="text" id="inputTell" class="bs1-grid-cell-input-cell" placeholder="00 000 000">
+                                    <div class="bs1-grid-cell">
+                                        <input type="checkbox" class="bs1-grid-cell-check">
+                                        <p class="bs1-grid-cell-checktext">Quiero recibir novedades por email</p>
                                     </div>
-                                </div>
-                            </form>
-                         </div>
-                         <button type="submit" form="formBuyStep1" id="btnToStep2" class="btnToStep2">Continuar</button>
-                    </div>
-
-
-
-                    <!-- STEP2 -->
-                    <div class="innerDivStep2">
-                        <div class="datospersonalesResumen">
-                            <div class="datospersonalesResumen__sup">
-                                <h5 class="datospersonalesResumen__sup-h5">Datos de Contacto</h5>
+                                    <div class="bs1-grid-cell">
+                                        <p class="bs1-grid-cell-text">Nombre</p>
+                                        <input type="text" id="inputName" class="bs1-grid-cell-input" name="name" placeholder="Ingresa tu nombre" required minlength="3">
+                                    </div>
+                                    <div class="bs1-grid-cell">
+                                        <p class="bs1-grid-cell-text">Apellido</p>
+                                        <input type="text" id="inputLastname" class="bs1-grid-cell-input" name="lastName" placeholder="Ingresa tu apellido" required minlength="3">
+                                    </div>
+                                    <div class="bs1-grid-cell">
+                                        <p class="bs1-grid-cell-text">DNI</p>
+                                        <input type="text" id="inputDni" class="bs1-grid-cell-input" name="dni" placeholder="00.000.000">
+                                    </div>
+                                    <div class="bs1-grid-cell">
+                                        <div class="bs1-grid-cell6">
+                                            <p class="bs1-grid-cell-text-area">Area</p>
+                                            <input type="text" id="inputArea" class="bs1-grid-cell-input-area" name="area" placeholder="00" minlength="2" maxlength="3">
+                                        </div>
+                                        <div class="bs1-grid-cell6">
+                                            <p class="bs1-grid-cell-text">Teléfono</p>
+                                            <input type="text" id="inputTell" class="bs1-grid-cell-input-cell" name="tell" placeholder="00 000 000" minlength="5">
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+    
+                        <!-- PARTE 2 -->
+                        <div class="innerDivStep2">
+                            <div class="datosEnvio-container">
+                                <h3 class="datosEnvio-container__h3">Datos de Envío</h3>
+                                <button type="button" id="datosEnvio-btn1" class="datosEnvio-container__btn">
+                                    <div class="datosEnvio-container__btn-left">
+                                        <div id="envio-btn-circle1" class="envio-btn-circle"></div>
+                                        <input id="datosEnvio-input1" type="radio" name="envio" class="envio-btn-radio">
+                                        <img src="./assets/icons/as-sucursal.svg" class="envio-btn-icon">
+                                        <p class="envio-btn-p">Retiro en sucursal</p>
+                                    </div>
+                                    <div class="datosEnvio-container__btn-right">
+                                        <div class="envio-btn-mount"></div>
+                                    </div>
+                                </button>
+                                <button type="button" id="datosEnvio-btn2" class="datosEnvio-container__btn">
+                                    <div class="datosEnvio-container__btn-left">
+                                        <div id="envio-btn-circle2" class="envio-btn-circle"></div>
+                                        <input id="datosEnvio-input2" type="radio" name="envio" class="envio-btn-radio">
+                                        <img src="./assets/icons/as-truck.svg" class="envio-btn-icon">
+                                        <p class="envio-btn-p">Envío a domicilio</p>
+                                    </div>
+                                    <div class="datosEnvio-container__btn-right">
+                                        <div class="envio-btn-mount"></div>
+                                    </div>
+                                </button>
                             </div>
-                            <div class="datospersonalesResumen__inf">
-                                <p>maildeprueba@prueba.com</p>
-                                <p>Nombre Apellido</p>
-                                <p>DNI 12345678</p>
-                                <p>Tel. 1112341234</p>
+                            <div id="datosEnvio-optional" class="datosEnvio-container-optional">
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text" >Código Postal</p>
+                                        <input type="text" id="inputCP" class="bs1-grid-cell-input" name="cp" placeholder="0000" minlength="3">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Calle</p>
+                                        <input type="text" id="inputStreet" class="bs1-grid-cell-input" name="street" placeholder="Ingresa la calle">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Departamento</p>
+                                        <input type="text" id="inputDpto" class="bs1-grid-cell-input" name="dpto" placeholder="Ingresa el departamento">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Altura</p>
+                                        <input type="text" id="inputAdressNumber" class="bs1-grid-cell-input" name="AdressNumber" placeholder="Ingresa la altura">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Provincia</p>
+                                        <input type="text" id="inputProvince" class="bs1-grid-cell-input" name="province" placeholder="Ingresa la provincia">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Ciudad</p>
+                                        <input type="text" id="inputCity" class="bs1-grid-cell-input" name="city" placeholder="Ingresa la ciudad">
+                                    </div>
                             </div>
                         </div>
-                        <div class="datosEnvio-container">
-                            <h3 class="datosEnvio-container__h3">Datos de Envío</h3>
-                            <button id="datosEnvio-btn1" class="datosEnvio-container__btn">
-                                <div class="datosEnvio-container__btn-left">
-                                    <div id="envio-btn-circle1" class="envio-btn-circle"></div>
-                                    <input id="datosEnvio-input1" type="radio" name="envio" class="envio-btn-radio">
-                                    <img src="./assets/icons/as-sucursal.svg" class="envio-btn-icon">
-                                    <p class="envio-btn-p">Retiro en sucursal</p>
-                                </div>
-                                <div class="datosEnvio-container__btn-right">
-                                    <div class="envio-btn-mount"></div>
-                                </div>
-                            </button>
-                            <button id="datosEnvio-btn2" class="datosEnvio-container__btn">
-                                <div class="datosEnvio-container__btn-left">
-                                    <div id="envio-btn-circle2" class="envio-btn-circle"></div>
-                                    <input id="datosEnvio-input2" type="radio" name="envio" class="envio-btn-radio">
-                                    <img src="./assets/icons/as-truck.svg" class="envio-btn-icon">
-                                    <p class="envio-btn-p">Envío a domicilio</p>
-                                </div>
-                                <div class="datosEnvio-container__btn-right">
-                                    <div class="envio-btn-mount"></div>
-                                </div>
-                            </button>
-                        </div>
-                        <div id="datosEnvio-optional" class="datosEnvio-container-optional">
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text" >Código Postal</p>
-                                <input type="text" id="inputCP" class="bs1-grid-cell-input" placeholder="0000">
+    
+                        <!-- PARTE 3 -->
+                        <div class="innerDivStep3">
+                            <div class="datosPago-container">
+                                <h3 class="datosPago-container__h3">Pago</h3>
+                                <button type="button" id="datosEnvio-btn3" class="datosPago-container__btn">
+                                    <div class="datosPago-container__btn-inner1">
+                                        <div id="envio-btn-circle3" class="envio-btn-circle"></div>
+                                        <input id="datosEnvio-input3" type="radio" name="pago" class="envio-btn-radio">
+                                        <img src="./assets/icons/as-money.svg" class="envio-btn-icon">
+                                        <p class="envio-btn-p">Efectivo</p>
+                                    </div>
+                                </button>
+                                <button type="button" id="datosEnvio-btn4" class="datosPago-container__btn">
+                                    <div class="datosPago-container__btn-inner2">
+                                        <div id="envio-btn-circle4" class="envio-btn-circle"></div>
+                                        <input id="datosEnvio-input4" type="radio" name="pago" class="envio-btn-radio">
+                                        <img src="./assets/icons/as-mp.svg" class="envio-btn-icon">
+                                        <p class="envio-btn-p">Mercado Pago</p>
+                                        <span class="envio-btn-span">Cuando finalice la compra lo redirijirá al pago</span>
+                                    </div>
+                                </button>
+                                <button type="button" id="datosEnvio-btn5" class="datosPago-container__btn">
+                                    <div class="datosPago-container__btn-inner3">
+                                        <div id="envio-btn-circle5" class="envio-btn-circle"></div>
+                                        <input id="datosEnvio-input5" type="radio" name="pago" class="envio-btn-radio">
+                                        <img src="./assets/icons/as-creditcard.svg" class="envio-btn-icon">
+                                        <p class="envio-btn-p">Tarjeta de Crédito / Débito</p>
+                                    </div>
+                                </button>
                             </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Calle</p>
-                                <input type="text" id="inputStreet" class="bs1-grid-cell-input" placeholder="Ingresa la calle">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Departamento</p>
-                                <input type="text" id="inputDpto" class="bs1-grid-cell-input" placeholder="Ingresa el departamento">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Altura</p>
-                                <input type="text" id="inputAdressNumber" class="bs1-grid-cell-input" placeholder="Ingresa la altura">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Provincia</p>
-                                <input type="text" id="inputProvince" class="bs1-grid-cell-input" placeholder="Ingresa la provincia">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Ciudad</p>
-                                <input type="text" id="inputCity" class="bs1-grid-cell-input" placeholder="Ingresa la ciudad">
-                            </div>
-                        </div>
-                        <button id="btnToStep3" class="btnToStep3">Continuar</button> 
-                    </div>
-
-                    <!-- STEP3 -->
-                    <div class="innerDivStep3">
-                        <div class="resumenTodaLaData">
-                            <div class="datospersonalesResumen">
-                                <div class="datospersonalesResumen__sup">
-                                    <h5 class="datospersonalesResumen__sup-h5">Datos de Contacto</h5>
-                                </div>
-                                <div class="datospersonalesResumen__inf">
-                                    <p>maildeprueba@prueba.com</p>
-                                    <p>Nombre Apellido</p>
-                                    <p>DNI 12345678</p>
-                                    <p>Tel. 1112341234</p>
-                                </div>
-                            </div>
-                            <div class="datosenvioResumen">
-                                <div class="datosenvioResumen__sup">
-                                    <h5 class="datosenvioResumen__sup-h5">Datos de envío</h5>
-                                </div>
-                                <div class="datosenvioResumen__inf">
-                                    <p>Envio a domicilio</p>
-                                    <p>CP 1234</p>
-                                    <p>Calle Falsa 123</p>
-                                    <p>Provincia, localidad</p>
-                                </div>
+                            <div id="datosEnvio-optional2" class="datosEnvio-container-optional">
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Número de la tarjeta</p>
+                                        <input type="text" id="inputCardNumber" class="bs1-grid-cell-input" name="cardNumber" placeholder="0000 0000 0000 0000" required minlength="12" maxlength="12">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Vencimiento</p>
+                                        <input type="text" id="inputCardExpiration" class="bs1-grid-cell-input" name="cardExp" placeholder="00/00" required minlength="4">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Titular</p>
+                                        <input type="text" id="inputCardOwner" class="bs1-grid-cell-input" name="cardOwner" placeholder="Nombre del titular" required minlength="7">
+                                    </div>
+                                    <div class="bs2-grid-cell">
+                                        <p class="bs1-grid-cell-text">Número de seguridad</p>
+                                        <input type="text" id="inputCardSecurityNumber" class="bs1-grid-cell-input" name="cardSecurityNumber" placeholder="000" required minlength="3" maxlength="3">
+                                    </div>
                             </div>
                         </div>
-                        <div class="datosPago-container">
-                            <h3 class="datosPago-container__h3">Pago</h3>
-                            <button id="datosEnvio-btn3" class="datosPago-container__btn">
-                                <div class="datosPago-container__btn-inner1">
-                                    <div id="envio-btn-circle3" class="envio-btn-circle"></div>
-                                    <input id="datosEnvio-input3" type="radio" name="pago" class="envio-btn-radio">
-                                    <img src="./assets/icons/as-money.svg" class="envio-btn-icon">
-                                    <p class="envio-btn-p">Efectivo</p>
-                                </div>
-                            </button>
-                            <button id="datosEnvio-btn4" class="datosPago-container__btn">
-                                <div class="datosPago-container__btn-inner2">
-                                    <div id="envio-btn-circle4" class="envio-btn-circle"></div>
-                                    <input id="datosEnvio-input4" type="radio" name="pago" class="envio-btn-radio">
-                                    <img src="./assets/icons/as-creditcard.svg" class="envio-btn-icon">
-                                    <p class="envio-btn-p">Tarjeta de Crédito / Débito</p>
-                                </div>
-                            </button>
-                        </div>
-                        <div id="datosEnvio-optional2" class="datosEnvio-container-optional">
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Número de la tarjeta</p>
-                                <input type="text" class="bs1-grid-cell-input" placeholder="0000 0000 0000 0000">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Vencimiento</p>
-                                <input type="text" class="bs1-grid-cell-input" placeholder="00/00">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Titular</p>
-                                <input type="text" class="bs1-grid-cell-input" placeholder="Nombre del titular">
-                            </div>
-                            <div class="bs2-grid-cell">
-                                <p class="bs1-grid-cell-text">Número de seguridad</p>
-                                <input type="text" class="bs1-grid-cell-input" placeholder="000">
-                            </div>
-                        </div>
-                        <button id="finale" class="btnToStep3">Finalizar Compra</button>
-                    </div>
-                   
+                        <button type="submit" id="finale" class="btnToStep3">Finalizar Compra</button>
+                    </form>                   
                 </div>
             </div>
 
@@ -254,9 +226,12 @@
                         </div>
                     </div>
                 </div>                
-
             </div>
         </section>
+        <div id="modal-container" class="modal-container">
+            <div id="modal" class="modal">
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer__inner-left">

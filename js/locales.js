@@ -1,3 +1,6 @@
+$('#main-h1').fadeIn(1000)
+
+
 $('#local1').append(`
     <div class="local1__inner">
         <h2 class="local1__inner-h2">Barrio de Palermo</h2>
@@ -17,7 +20,6 @@ $('#local1').append(`
 `)
 
 
-
 $('#local2').append(`
         <div class="local2__inner">
             <h2 class="local2__inner-h2 mb">Estás a un click de distancia para averiguar donde vamos a estar muy pronto!</h2>
@@ -32,13 +34,14 @@ $('.imglocal').css('width', '700px')
 $('#local2').on('click',()=>{
 
     if(sessionStorage.getItem("Cambio") === null){
-        $('.local2__inner-h2').addClass('byebyeOpacity')
-        $('#img2').addClass('byebyeOpacity')
+        $('.local2__inner-h2').fadeOut()
+        $('#img2').fadeOut()
         sessionStorage.setItem("Cambio", true)
     
     
         setTimeout(() => {
-            $('.local2__inner').css('display', 'none')
+            $('.local2__inner-h2').css('display', 'none')
+            $('#img2').css('display', 'none')
             $('#local2').append(`
             <div class="local1__inner">
                 <h1 class="local1__inner-h1">MUY PRONTO!!!!</h1>
@@ -58,11 +61,10 @@ $('#local2').on('click',()=>{
             <img id="img2" class="img2" class="imglocal" src="./assets/images/whoIs2.jpeg">
 
         `)
-        }, 1000)
+        }, 0700)
 
 
     }
-    console.log('funca')
 } )
 
 window.addEventListener('load',()=>{

@@ -172,7 +172,7 @@ const aplicarDescuento20 = () => {
     finalMount = (pruebaSubTotal - cuponApli).toFixed(2);
     finalMountContainer.innerHTML = `$${finalMount}`
     totalPrice.append(finalMountContainer);
-    totalPrice.removeChild(totalPriceInner)
+    //totalPrice.removeChild(totalPriceInner)
     sessionStorage.setItem("CuponAplicationName", "akirasushi");
     sessionStorage.setItem("CuponAplicationType", "%20");
     sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
@@ -181,7 +181,8 @@ const aplicarDescuento20 = () => {
 
 
 
-// APLICACION DE LOS CUPONES 
+// APLICACION DE LOS CUPONES
+const cuponSection = document.getElementById('cuponSection') 
 const spanWarning = document.getElementById('span-warning')
 
 cuponBtn.addEventListener('click', (e) =>{
@@ -253,7 +254,17 @@ window.addEventListener('load', () =>{
     }
 })
 
+// CAMBIO EN PANTALLA PARA EFECTUAR LA COMPRA 
+const finalPur = document.getElementById('final-pur')
+const formularioCompleto = document.getElementById('formularioCompleto')
 
+finalPur.addEventListener('click', () =>{
+    selectionList.classList.add('disp-none');
+    cuponSection.classList.add('disp-none')
+    formularioCompleto.classList.remove('disp-none')
+    finalPur.classList.add('disp-none')
+
+})
 
 // APLICACION ESTETICA DE LOS INPUT RADIO
 
@@ -264,7 +275,17 @@ const envioBtnCircle2 = document.getElementById('envio-btn-circle2');
 const datosEnvioInput1 = document.getElementById('datosEnvio-input1');
 const datosEnvioInput2 = document.getElementById('datosEnvio-input2');
 const datosEnvioOptional = document.getElementById('datosEnvio-optional')
-
+const datosEnvioBtn3 = document.getElementById('datosEnvio-btn3');
+const datosEnvioBtn4 = document.getElementById('datosEnvio-btn4');
+const datosEnvioBtn5 = document.getElementById('datosEnvio-btn5');
+const envioBtnCircle3 = document.getElementById('envio-btn-circle3');
+const envioBtnCircle4 = document.getElementById('envio-btn-circle4');
+const envioBtnCircle5 = document.getElementById('envio-btn-circle5');
+const datosEnvioInput3 = document.getElementById('datosEnvio-input3');
+const datosEnvioInput4 = document.getElementById('datosEnvio-input4');
+const datosEnvioInput5 = document.getElementById('datosEnvio-input5');
+const avisoSpanMP = document.querySelector('.envio-btn-span')
+const datosEnvioOptional2 = document.getElementById('datosEnvio-optional2')
 
 datosEnvioInput1.addEventListener('click', () =>{
     envioBtnCircle1.classList.add('border-red');
@@ -287,56 +308,284 @@ datosEnvioBtn2.addEventListener('click', () =>{
 })
 
 
-const datosEnvioBtn3 = document.getElementById('datosEnvio-btn3');
-const datosEnvioBtn4 = document.getElementById('datosEnvio-btn4');
-const envioBtnCircle3 = document.getElementById('envio-btn-circle3');
-const envioBtnCircle4 = document.getElementById('envio-btn-circle4');
-const datosEnvioInput3 = document.getElementById('datosEnvio-input3');
-const datosEnvioInput4 = document.getElementById('datosEnvio-input4');
-const datosEnvioOptional2 = document.getElementById('datosEnvio-optional2')
-
-
 datosEnvioInput3.addEventListener('click', () =>{
     envioBtnCircle3.classList.add('border-red');
     envioBtnCircle4.classList.remove('border-red');
+    envioBtnCircle5.classList.remove('border-red');
+    avisoSpanMP.classList.remove('opacity-1');
     datosEnvioOptional2.classList.remove('disp-gri');
 })
 
 datosEnvioInput4.addEventListener('click', () =>{
     envioBtnCircle4.classList.add('border-red');
+    avisoSpanMP.classList.add('opacity-1')
     envioBtnCircle3.classList.remove('border-red');
+    envioBtnCircle5.classList.remove('border-red');
+    datosEnvioOptional2.classList.remove('disp-gri');
+})
+
+datosEnvioInput5.addEventListener('click', () =>{
+    envioBtnCircle5.classList.add('border-red');
+    envioBtnCircle3.classList.remove('border-red');
+    envioBtnCircle4.classList.remove('border-red');
+    avisoSpanMP.classList.remove('opacity-1');
     datosEnvioOptional2.classList.add('disp-gri');
 })
 
 datosEnvioBtn3.addEventListener('click', () =>{
     datosEnvioInput3.click()
+    sessionStorage.removeItem("eligeMP");
+
 })
+
 datosEnvioBtn4.addEventListener('click', () =>{
     datosEnvioInput4.click()
+    sessionStorage.setItem("eligeMP", true);
+})
+
+datosEnvioBtn5.addEventListener('click', () =>{
+    datosEnvioInput5.click()
+    sessionStorage.removeItem("eligeMP");
 })
 
 
-// CAPTURA DE VALORES DE INPUT
+// APLICACION PRACTICA DE LOS INPUTS RADIO 
+const inputCP = document.getElementById('inputCP');
+const inputStreet = document.getElementById('inputStreet');
+const inputAdressNumber = document.getElementById('inputAdressNumber');
+const inputProvince = document.getElementById('inputProvince');
+const inputCity = document.getElementById('inputCity');
+const inputCardNumber = document.getElementById('inputCardNumber');
+const inputCardExpiration = document.getElementById('inputCardExpiration');
+const inputCardOwner = document.getElementById('inputCardOwner');
+const inputCardSecurityNumber = document.getElementById('inputCardSecurityNumber');
 
-let inputEmail = document.getElementById('inputEmail');
-let inputName = document.getElementById('inputName');
-let inputLastname = document.getElementById('inputLastname');
-let inputArea = document.getElementById('inputArea');
-let inputTell = document.getElementById('inputTell');
+datosEnvioInput2.addEventListener('click', () =>{
+    inputCP.required = " ";
+    inputStreet.required = " ";
+    inputAdressNumber.required = " ";
+    inputProvince.required = " ";
+    inputCity.required = " ";
+})
+
+datosEnvioInput1.addEventListener('click', () =>{
+    inputCP.removeAttribute('required')
+    inputStreet.removeAttribute('required')
+    inputAdressNumber.removeAttribute('required')
+    inputProvince.removeAttribute('required')
+    inputCity.removeAttribute('required')
+})
+
+datosEnvioInput5.addEventListener('click', () =>{
+    inputCardNumber.required = " ";
+    inputCardExpiration.required = " ";
+    inputCardOwner.required = " ";
+    inputCardSecurityNumber.required = " ";
+})
+
+datosEnvioInput3.addEventListener('click', () =>{
+    inputCardNumber.removeAttribute('required')
+    inputCardExpiration.removeAttribute('required')
+    inputCardOwner.removeAttribute('required')
+    inputCardSecurityNumber.removeAttribute('required')
+})
+
+datosEnvioInput4.addEventListener('click', () =>{
+    inputCardNumber.removeAttribute('required')
+    inputCardExpiration.removeAttribute('required')
+    inputCardOwner.removeAttribute('required')
+    inputCardSecurityNumber.removeAttribute('required')
+})
 
 
-// let inputCP = document.getElementById('inputCP');
-// let inputStreet = document.getElementById('inputStreet');
-// let inputAdressNumber = document.getElementById('inputAdressNumber');
-// let inputProvince = document.getElementById('inputProvince');
-// let inputCity = document.getElementById('inputCity');
+
+
+// METODOS DE PAGO - MODAL DE FINALIZACIÓN DE COMPRA
+
+const modalContainer = document.getElementById('modal-container');
+const modal = document.getElementById('modal');
+const modalData = document.createElement('div');
+
+modalData.innerHTML = `
+        <div class="modal-info">
+        <div class="modal-info__inner">
+            <h3 class="modal-info__inner-h3">Compra realizada con éxito!!</h3>
+            <img src="./assets/images/modalfinalimg.jpeg" class="modal-info__inner-img">
+            <a class="modal-info__inner-a" id="finiquito" href="index.html">Ir a la página principal</a>
+        </div>
+        </div>
+`;
+
+modal.append(modalData);
+
+const mostrarModal = () => {
+    modalContainer.classList.add('modal-show');
+}
+
+const finiquito = document.getElementById('finiquito');
+
+finiquito.addEventListener('click', () =>{
+    localStorage.clear()
+    sessionStorage.clear()
+})
+
+
+//METODOS DE PAGO - MERCADO PAGO 
+const finalizarCompra = () =>{
+
+    const compraConMP = finalShopList.map((prod) =>{
+        return{
+            title: prod.name2,
+            description: "",
+            picture_url: "",
+            category_id: prod.id,
+            quantity: prod.units2,
+            currency_id: "ARS",
+            unit_price: prod.price
+        }
+    })
+
+    console.log(compraConMP)
+
+
+    fetch('https://api.mercadopago.com/checkout/preferences', {
+        method: 'POST',
+        headers:{
+            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
+        },
+        body: JSON.stringify({
+            items: compraConMP
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            window.location.replace(data.init_point)
+        })
+
+}
+
+const finalizarCompra10off = () =>{
+
+    const compraConMP = finalShopList.map((prod) =>{
+        return{
+            title: prod.name2,
+            description: "",
+            picture_url: "",
+            category_id: prod.id,
+            quantity: prod.units2,
+            currency_id: "ARS",
+            unit_price: (prod.price - ((prod.price * 10)/100))
+        }
+    })
+
+    console.log(compraConMP)
+
+
+    fetch('https://api.mercadopago.com/checkout/preferences', {
+        method: 'POST',
+        headers:{
+            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
+        },
+        body: JSON.stringify({
+            items: compraConMP
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            window.location.replace(data.init_point)
+        })
+}
+
+const finalizarCompra15off = () =>{
+
+    const compraConMP = finalShopList.map((prod) =>{
+        return{
+            title: prod.name2,
+            description: "",
+            picture_url: "",
+            category_id: prod.id,
+            quantity: prod.units2,
+            currency_id: "ARS",
+            unit_price: (prod.price - ((prod.price * 15)/100))
+        }
+    })
+
+    console.log(compraConMP)
+
+
+    fetch('https://api.mercadopago.com/checkout/preferences', {
+        method: 'POST',
+        headers:{
+            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
+        },
+        body: JSON.stringify({
+            items: compraConMP
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            window.location.replace(data.init_point)
+        })
+}
+
+const finalizarCompra20off = () =>{
+
+    const compraConMP = finalShopList.map((prod) =>{
+        return{
+            title: prod.name2,
+            description: "",
+            picture_url: "",
+            category_id: prod.id,
+            quantity: prod.units2,
+            currency_id: "ARS",
+            unit_price: (prod.price - ((prod.price * 20)/100))
+        }
+    })
+
+    console.log(compraConMP)
+
+
+    fetch('https://api.mercadopago.com/checkout/preferences', {
+        method: 'POST',
+        headers:{
+            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
+        },
+        body: JSON.stringify({
+            items: compraConMP
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            window.location.replace(data.init_point)
+        })
+
+}
 
 
 
-// PASO DE PAGINA EN PÁGINA 
-
-// const finalPur = document.getElementById('final-pur')
-// const cuponSection = document.getElementById('cuponSection');
-
-
-
+formularioCompleto.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    if(sessionStorage.getItem("eligeMP")){
+        if(sessionStorage.getItem("CuponAplicationName") == "pikachu" ){
+            finalizarCompra10off()
+        }
+        else if(sessionStorage.getItem("CuponAplicationName") == "evangelion" ){
+            finalizarCompra15off()
+    
+        }
+        else if( sessionStorage.getItem("CuponAplicationName") == "akirasushi" ){
+            finalizarCompra20off()
+    
+        }
+        else{
+            finalizarCompra()
+        }
+    }
+    else{   
+        mostrarModal()
+    }
+})
