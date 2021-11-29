@@ -178,6 +178,7 @@ body{
     height: 136px;
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
 }
 
 .s1inf-middle-one, .s1inf-middle-two, .s1inf-middle-three{
@@ -185,6 +186,7 @@ body{
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
 
 .s1inf-middle-inner-img{
@@ -199,6 +201,40 @@ body{
     color: #fff;
 }
 
+.mt1{
+    margin-top: 1px;
+}
+
+.s1inf-middle-one-bar{
+    width: 73px;
+    height: 6px;
+    position: absolute;
+    bottom: -24px;
+    background-color: #FBCD57;
+    visibility: hidden;
+}
+ 
+.s1inf-middle-two-bar{
+    width: 139px;
+    height: 6px;
+    position: absolute;
+    bottom: -24px;
+    background-color: #FBCD57;
+    visibility: hidden;
+}
+
+.s1inf-middle-three-bar{
+    width: 103px;
+    height: 6px;
+    position: absolute;
+    bottom: -24px;
+    background-color: #FBCD57;
+    visibility: hidden;
+}
+
+.show--bar{
+    visibility: visible;
+}
 
 /* --------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
@@ -207,6 +243,7 @@ body{
 ----------------------------------------------------------------------------------------------------------- */
 
 .section-2{
+    position: relative;
     width: 100%;
     min-height: 30vw;
     padding: 88px 155px;
@@ -337,7 +374,57 @@ body{
 }
 
 
+.koffing{
+    width: 139px;
+    height: 160px;
+    position: absolute;
+    top: 143px;
+    left: 0;
+}
 
+.nezuko{
+    width: 126px;
+    height: 206px;
+    position: absolute;
+    bottom: 110px;
+    right: 0;
+}
+
+.hamtaro{
+    width: 125px;
+    height: 204px;
+    position: absolute;
+    top: 130px;
+    left: 0;
+}
+
+.majinbuu{
+    width: 125px;
+    height: 205px;
+    position: absolute;
+    bottom: 110px;
+    right: 0;
+}
+
+.sailormoon{
+    width: 130px;
+    height: 241px;
+    position: absolute;
+    top: 97px;
+    left: 0;
+}
+.mokona{
+    width: 139px;
+    height: 133px;
+    position: absolute;
+    bottom: 108px;
+    right: 0;
+}
+
+.no--show{
+    visibility: hidden;
+    opacity: 0;
+}
 
 
 /* --------------------------------------------------------------------------------------------------------

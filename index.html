@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script defer src="./js/relax.min.js"></script>
     <script defer src="./js/appIndex.js"></script>
     <title>Akira Sushi</title>
 </head>
@@ -36,8 +37,16 @@
                     <button class="s1left__inner-btn"><a href="variedades.html" class="s1left__inner-btnlink">VARIEDADES</a></button>
                 </div>
             </div>
-            <div class="section-1__right">
-                <img src="./assets/images/principalimg.png" alt="Akira Sushi" class="principalimg">
+            <div class="section-1__right" >
+                <div class="rellax" data-rellax-speed="0">
+                    <img src="./assets/images/paralax/back.png" alt="Akira Sushi" class="principalimg1">
+                </div>
+                <div class="rellax" data-rellax-speed="1">
+                    <img src="./assets/images/paralax/middle.png" alt="Akira Sushi" class="principalimg2">
+                </div>
+                <div class="rellax"data-rellax-speed="2">
+                    <img src="./assets/images/paralax/front.png" alt="Akira Sushi" class="principalimg3">
+                </div>
             </div>
             <!-- modal  -->
             <div id="modal-container" class="modal-container">
@@ -48,7 +57,7 @@
                 <div id="toaster"></div>
             <!-- toaster end-->
         </section>
-
+        
         <section class="section-2" id="section-2">
             <div class="section-2__left">
                 <section class="section-2__left-inner">
@@ -63,8 +72,8 @@
             </div>
         </section>
         <section class="section-3">
-            <img src="./assets/images/kero.svg" alt="Akira Sushi" class="kero">
-            <img src="./assets/images/agumon.svg" alt="Akira Sushi" class="agumon">
+            <img src="./assets/images/pjsanime/kero.svg" alt="Akira Sushi" class="kero">
+            <img src="./assets/images/pjsanime/agumon.svg" alt="Akira Sushi" class="agumon">
             <div class="s3__inner">
                 <h2 class="s3__inner-h2">Novedades</h2>
                 <p class="s3__inner-p">Conoce nuestros sabores:</p>

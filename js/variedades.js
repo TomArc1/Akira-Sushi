@@ -1,6 +1,15 @@
 const cartaPiezas = document.getElementById('cartaPiezas');
 const cartaSalads = document.getElementById('cartaSalads');
 const cartaPlatos = document.getElementById('cartaPlatos');
+const bar1 = document.querySelector('.s1inf-middle-one-bar');
+const bar2 = document.querySelector('.s1inf-middle-two-bar');
+const bar3 = document.querySelector('.s1inf-middle-three-bar');
+const koffing = document.querySelector('.koffing')
+const nezuko = document.querySelector('.nezuko')
+const hamtaro = document.querySelector('.hamtaro')
+const majinbuu = document.querySelector('.majinbuu')
+const sailormoon = document.querySelector('.sailormoon')
+const mokona = document.querySelector('.mokona')
 
 const section2 = document.getElementById('section-2');
 const cardsContainer = document.getElementById('cardsContainer');
@@ -149,19 +158,48 @@ const seleccionDePlatos = () =>{
 
 window.addEventListener('load', ()=>{
     seleccionDePiezas()
+    bar1.classList.add('show--bar');
 })
 
 
 cartaPiezas.addEventListener('click', ()=>{
     seleccionDePiezas()
+    bar1.classList.add('show--bar');
+    bar2.classList.remove('show--bar');
+    bar3.classList.remove('show--bar');
+    koffing.classList.remove('no--show');
+    nezuko.classList.remove('no--show');
+    hamtaro.classList.add('no--show');
+    majinbuu.classList.add('no--show');
+    sailormoon.classList.add('no--show');
+    mokona.classList.add('no--show');
 })
 
 cartaSalads.addEventListener('click', ()=>{
     seleccionDeSalads()
+    bar2.classList.add('show--bar');
+    bar1.classList.remove('show--bar');
+    bar3.classList.remove('show--bar');
+    koffing.classList.add('no--show');
+    nezuko.classList.add('no--show');
+    hamtaro.classList.remove('no--show');
+    majinbuu.classList.remove('no--show');
+    sailormoon.classList.add('no--show');
+    mokona.classList.add('no--show');
+
 })
 
 cartaPlatos.addEventListener('click', ()=>{
     seleccionDePlatos()
+    bar3.classList.add('show--bar');
+    bar1.classList.remove('show--bar');
+    bar2.classList.remove('show--bar');
+    koffing.classList.add('no--show');
+    nezuko.classList.add('no--show');
+    hamtaro.classList.add('no--show');
+    majinbuu.classList.add('no--show');
+    sailormoon.classList.remove('no--show');
+    mokona.classList.remove('no--show');
 })
 
 
@@ -190,10 +228,8 @@ if(thereIsCarrito1 != null || thereIsCarrito2 != null ){
 
 // AGREGAR AL CARRITO
 let newCart =[]; 
-// let carritoSalads =[]; 
-// let carritoPlatos =[]; 
 
-// PIECES 
+
 const agregarCarrito = (prodId) => {
     const alreadyCarrito = localStorage.getItem("CarritoCarta");
     if(alreadyCarrito !== null){
@@ -215,47 +251,3 @@ const agregarCarrito = (prodId) => {
 
     }
 }
-
-// SALADS
-// const agregarCarritoSalads = (prodId) => {
-//     const alreadyCarrito = localStorage.getItem("CarritoCarta");
-//     if(alreadyCarrito !== null){
-//         const newCarritoSalads = JSON.parse(localStorage.getItem("CarritoCarta"))
-//         localStorage.removeItem("CarritoCarta")
-//         console.log(newCarritoSalads)
-//         const item = salads.find( (prod) => prod.id === prodId )
-//         newCarritoSalads.push(item);
-//         console.log(newCarritoNov)
-//         localStorage.setItem("CarritoCarta", JSON.stringify(newCarritoSalads))
-//         notice()
-
-//     }
-//     else if(alreadyCarrito === null){
-//         const item = salads.find( (prod) => prod.id === prodId )
-//         carritoSalads.push(item)
-//         localStorage.setItem("CarritoCarta", JSON.stringify(carritoSalads))
-//         notice()
-//     }
-// }
-
-// // PLATOS
-// const agregarCarritoPlatos = (prodId) => {
-//     const alreadyCarrito = localStorage.getItem("CarritoCarta");
-//     if(alreadyCarrito !== null){
-//         const newCarritoPlatos = JSON.parse(localStorage.getItem("CarritoCarta"))
-//         localStorage.removeItem("CarritoCarta")
-//         console.log(newCarritoPlatos)
-//         const item = platos.find( (prod) => prod.id === prodId )
-//         newCarritoPlatos.push(item);
-//         console.log(newCarritoNov)
-//         localStorage.setItem("CarritoCarta", JSON.stringify(newCarritoPlatos))
-//         notice()
-//     }
-//     else if(alreadyCarrito === null){
-//         const item = platos.find( (prod) => prod.id === prodId )
-//         carritoPlatos.push(item)
-//         localStorage.setItem("CarritoCarta", JSON.stringify(carritoPlatos))
-//         notice()
-
-//     }
-// }

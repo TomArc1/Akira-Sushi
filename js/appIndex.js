@@ -1,3 +1,6 @@
+// PARALAX 
+const rellax = new Rellax('.rellax');
+
 // CONSTRUCCIÓN DE MODAL
 
 const modalContainer = document.getElementById('modal-container');
@@ -7,7 +10,7 @@ const modalData = document.createElement('div');
 
 modalData.innerHTML = `
     <div class="modal-info">
-        <img src="./assets/images/narumodal.png" class="narumodal">
+        <img src="./assets/images/narumodal.png" class="narumodalimg">
         <div class="modal-info__inner">
             <h3 class="modal-info__inner-h3">Konnichiwa!</h3>
             <p class="modal-info__inner-p">Suscribite a nuestro newsletter y te contaremos sobre nuestros nuevos lanzamientos y promociones</p>
