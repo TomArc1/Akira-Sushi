@@ -9,19 +9,19 @@ let getShopSelectedfinal;
 const getShopSelected = JSON.parse(localStorage.getItem("CarritoCarta")) ;
 const getShopSelectedNov = JSON.parse(localStorage.getItem("CarritoNov")) ;
 
-if(getShopSelected == null){
-    getShopSelectedfinal = getShopSelectedNov;
-}
-if(getShopSelectedNov == null){
-    getShopSelectedfinal = getShopSelected;
 
+if(localStorage.getItem("CarritoActual")){
+    getShopSelectedfinal = JSON.parse(localStorage.getItem("CarritoActual"))
 }
-if(getShopSelectedNov != null && getShopSelected != null){
-
-    if(localStorage.getItem("CarritoActual")){
-        getShopSelectedfinal = JSON.parse(localStorage.getItem("CarritoActual"))
+else{
+    if(getShopSelected == null){
+        getShopSelectedfinal = getShopSelectedNov;
     }
-    else{
+    if(getShopSelectedNov == null){
+        getShopSelectedfinal = getShopSelected;
+    
+    }
+    if(getShopSelectedNov != null && getShopSelected != null){
         getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
         localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
     }
@@ -65,13 +65,7 @@ const actualizarCarrito = () =>{
                     <p class="shop-selected__info-units">${element.units * element.units2} unidades</p>
                 </div>
                 <div class="shop-selected__many">
-                    <button class="shop-selected__many-minus">
-                        <img src="./assets/icons/as-minus.svg">
-                    </button>
                     <input type="text" class="shop-selected__many-show" placeholder="${element.units2}">
-                    <button class="shop-selected__many-plus">
-                        <img src="./assets/icons/as-plus.svg">
-                    </button>
                 </div>
                 <p class="shop-selected__many-price">$${element.price * element.units2}</p>
                 <button onclick="eliminarDelCarrito(${element.id})" class="sushi-selected-trash">
