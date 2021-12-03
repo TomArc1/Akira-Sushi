@@ -126,9 +126,11 @@
 .shop-selected__many-show{
     width: 32px;
     height: 32px;
+    text-align: center;
 }
 
 .shop-selected__many-price{
+    width: 46px;
     font-weight: 700;
     margin-right: 24px;
 }

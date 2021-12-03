@@ -235,10 +235,8 @@ const agregarCarrito = (prodId) => {
     if(alreadyCarrito !== null){
         const newUpdateCarrito = JSON.parse(localStorage.getItem("CarritoCarta"))
         localStorage.removeItem("CarritoCarta")
-        console.log(newUpdateCarrito)
         const item = todaLaCarta.find( (prod) => prod.id === prodId )
         newUpdateCarrito.push(item);
-        console.log(newUpdateCarrito)
         localStorage.setItem("CarritoCarta", JSON.stringify(newUpdateCarrito))
         notice()
 

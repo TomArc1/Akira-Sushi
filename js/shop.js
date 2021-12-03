@@ -1,5 +1,7 @@
 console.log('Cupones válidos: pikachu - evangelion - akirasushi')
 
+
+// RECUPERACION DE PEDIDO DESDE INDEX Y VARIDADES 
 const selectionList = document.getElementById('selection-list');
 const selectionListInner = document.createElement('div');
 
@@ -12,16 +14,41 @@ if(getShopSelected == null){
 }
 if(getShopSelectedNov == null){
     getShopSelectedfinal = getShopSelected;
+
 }
 if(getShopSelectedNov != null && getShopSelected != null){
-    getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
-    localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
+
+    if(localStorage.getItem("CarritoActual")){
+        getShopSelectedfinal = JSON.parse(localStorage.getItem("CarritoActual"))
+    }
+    else{
+        getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
+        localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
+    }
 }
 
 
-const finalShopList = getShopSelectedfinal;
+// ORGANIZACIÓN DEL CARRITO -UNIFICACION DE PRODUCTOS SIMILARES-
+
+let fixList = [];
+const acomodarCarrito = () =>{
+    
+    getShopSelectedfinal.forEach((comida) =>{
+        const elemento = finalShopList.find((prod)=> prod.id == comida.id)
+        if(elemento){
+            elemento.units2 += 1
+        }
+        else{
+            fixList.push(comida)
+        }
+
+    })
+}
+
+let finalShopList = fixList;
 
 
+// APLICACIÓN DE PRODUCTOS SELECCIONADOS A LA PÁGINA 
 const actualizarCarrito = () =>{
     selectionListInner.innerHTML = ""
 
@@ -35,18 +62,18 @@ const actualizarCarrito = () =>{
                 </div>
                 <div class="shop-selected__info">
                     <p class="shop-selected__info-name">${element.name2}</p>
-                    <p class="shop-selected__info-units">${element.units} unidades</p>
+                    <p class="shop-selected__info-units">${element.units * element.units2} unidades</p>
                 </div>
                 <div class="shop-selected__many">
                     <button class="shop-selected__many-minus">
                         <img src="./assets/icons/as-minus.svg">
                     </button>
-                    <input type="text" class="shop-selected__many-show">
+                    <input type="text" class="shop-selected__many-show" placeholder="${element.units2}">
                     <button class="shop-selected__many-plus">
                         <img src="./assets/icons/as-plus.svg">
                     </button>
                 </div>
-                <p class="shop-selected__many-price">$${element.price}</p>
+                <p class="shop-selected__many-price">$${element.price * element.units2}</p>
                 <button onclick="eliminarDelCarrito(${element.id})" class="sushi-selected-trash">
                     <img src="./assets/icons/as-trash.svg">
                 </button>
@@ -57,7 +84,7 @@ const actualizarCarrito = () =>{
 
 }
 
-
+// AVISO DE CARRITO VACÍO 
 const warningEmptyCart = () =>{
     const emptyCart = document.createElement('div')
     emptyCart.innerHTML = `
@@ -71,21 +98,24 @@ const warningEmptyCart = () =>{
 }
 
 
-if(getShopSelectedfinal != null){
-    window.addEventListener('load', ()=> {
-        actualizarCarrito()
-    })
-}else{
-    warningEmptyCart()
+// CORROBORACION DE STORAGE 
+
+const verStorage = () =>{
+    if(getShopSelectedfinal != null){
+        acomodarCarrito();
+        actualizarCarrito();
+        selectionList.append(selectionListInner);
+    }else{
+        warningEmptyCart();
+        selectionList.append(selectionListInner);
+    }    
 }
-
-selectionList.append(selectionListInner)
-
+verStorage()
 
 
 // SUBTOTAL - funcion previa
 const verSubTotal =() =>{
-    return  finalShopList.reduce( (acu, element) => acu + element.price, 0 );
+    return  finalShopList.reduce( (acu, element) => acu + (element.price * element.units2), 0 );
 }
 
 
@@ -114,31 +144,52 @@ realizarSubTotal()
 // ELIMINACION DE ELEMENTOS 
 const eliminarDelCarrito = (prodId) =>{
     const item = finalShopList.find( (prod) => prod.id === prodId);
-    const indice = finalShopList.indexOf(item)
-    finalShopList.splice(indice,1)
-    actualizarCarrito()
-    verSubTotal()
-    realizarSubTotal()
-    if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
-        totalPriceInner.innerHTML = ""
-        aplicarDescuento10()
+    if(item.units2 > 1){
+        item.units2 -= 1
+        actualizarCarrito();
+        verSubTotal();
+        realizarSubTotal();
+        if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento10()
+        }
+        if(sessionStorage.getItem("CuponAplicationName") == "evangelion"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento15()
+        }
+        if(sessionStorage.getItem("CuponAplicationName") == "akirasushi"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento20()
+        }
+        localStorage.setItem("CarritoActual", JSON.stringify(finalShopList));
     }
-    if(sessionStorage.getItem("CuponAplicationName") == "evangelion"){
-        totalPriceInner.innerHTML = ""
-        aplicarDescuento15()
+    else{
+        const indice = finalShopList.indexOf(item)
+        finalShopList.splice(indice,1)
+        actualizarCarrito()
+        verSubTotal()
+        realizarSubTotal()
+        if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento10()
+        }
+        if(sessionStorage.getItem("CuponAplicationName") == "evangelion"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento15()
+        }
+        if(sessionStorage.getItem("CuponAplicationName") == "akirasushi"){
+            totalPriceInner.innerHTML = ""
+            aplicarDescuento20()
+        }
+        localStorage.setItem("CarritoActual", JSON.stringify(finalShopList));
+        if(finalShopList.length == 0){
+            localStorage.removeItem("CarritoActual");
+            localStorage.removeItem("CarritoCarta");
+            localStorage.removeItem("CarritoNov");
+            iniciarCompra.classList.add('final-pur-noAccess')
+            warningEmptyCart()
+        } 
     }
-    if(sessionStorage.getItem("CuponAplicationName") == "akirasushi"){
-        totalPriceInner.innerHTML = ""
-        aplicarDescuento20()
-    }
-    localStorage.setItem("CarritoActual", JSON.stringify(finalShopList));
-    if(finalShopList.length == 0){
-        localStorage.removeItem("CarritoActual");
-        localStorage.removeItem("CarritoCarta");
-        localStorage.removeItem("CarritoNov");
-        iniciarCompra.classList.add('final-pur-noAccess')
-        warningEmptyCart()
-    } 
 };
 
 // CUPONES
@@ -213,7 +264,6 @@ const spanWarning = document.getElementById('span-warning')
 cuponBtn.addEventListener('click', (e) =>{
     if(cuponInput.value == "pikachu"){
         let comprobarCupon = sessionStorage.getItem("CuponAplicationName")
-        console.log(comprobarCupon)
         if(comprobarCupon == 'pikachu'){
             spanWarning.classList.add('show--spanWarning')
         }
@@ -240,9 +290,6 @@ cuponBtn.addEventListener('click', (e) =>{
             aplicarDescuento20()
         }
 
-    }
-    else{
-        console.log('tu hermana')
     }
 })
 

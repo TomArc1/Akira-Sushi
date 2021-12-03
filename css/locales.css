@@ -189,6 +189,8 @@
     font-size: 30px;
     line-height: 34px;
 }
+
+
 .imgquestion{
     cursor: pointer;
 }
@@ -219,6 +221,38 @@
 .panel__info-data3-p{
     line-height: 24px;
 }
+
+/* ----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------- */
+
+
+.no--show{
+    transition: .5s ease-in-out;
+    opacity: 0;
+}
+
+.show1{
+    transition: .25s ease-in-out;
+    opacity: 1;
+    font-size: 36px;
+}
+.show2{
+    transition: .25s ease-in-out;
+    opacity: 1;
+}
+
+.evolve{
+    filter: blur(15px) brightness(7);
+    transition: 1.5s ease-in-out;
+}
+
+.evolved{
+    filter: blur(0) brightness(1);
+    transition: 2s ease-in-out;
+}
+
+
+
 
 /* --------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
