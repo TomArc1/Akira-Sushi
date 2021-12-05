@@ -183,12 +183,12 @@ const mostrarModal = () => {
     modalContainer.classList.add('modal-show');
 }
 
-const compraFinalizada = document.getElementById('compraFinalizada');
+// const compraFinalizada = document.getElementById('compraFinalizada');
 
-compraFinalizada.addEventListener('click', () =>{
-    localStorage.clear()
-    sessionStorage.clear()
-})
+// compraFinalizada.addEventListener('click', () =>{
+//     localStorage.clear()
+//     sessionStorage.clear()
+// })
 
 
 //METODOS DE PAGO - MERCADO PAGO 
@@ -205,9 +205,6 @@ const finalizarCompra = () =>{
             unit_price: prod.price
         }
     })
-
-    console.log(compraConMP)
-
 
     fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
@@ -240,9 +237,6 @@ const finalizarCompra10off = () =>{
         }
     })
 
-    console.log(compraConMP)
-
-
     fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
         headers:{
@@ -273,9 +267,6 @@ const finalizarCompra15off = () =>{
         }
     })
 
-    console.log(compraConMP)
-
-
     fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
         headers:{
@@ -305,9 +296,6 @@ const finalizarCompra20off = () =>{
             unit_price: (prod.price - ((prod.price * 20)/100))
         }
     })
-
-    console.log(compraConMP)
-
 
     fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
@@ -349,6 +337,8 @@ formularioCompleto.addEventListener('submit', (e)=>{
     else{   
         mostrarModal()
     }
+    localStorage.clear()
+    sessionStorage.clear()
 })
 
 

@@ -10,21 +10,15 @@ const getShopSelected = JSON.parse(localStorage.getItem("CarritoCarta")) ;
 const getShopSelectedNov = JSON.parse(localStorage.getItem("CarritoNov")) ;
 
 
-if(localStorage.getItem("CarritoActual")){
-    getShopSelectedfinal = JSON.parse(localStorage.getItem("CarritoActual"))
+if(getShopSelected === null){
+    getShopSelectedfinal = getShopSelectedNov;
 }
-else{
-    if(getShopSelected == null){
-        getShopSelectedfinal = getShopSelectedNov;
-    }
-    if(getShopSelectedNov == null){
-        getShopSelectedfinal = getShopSelected;
-    
-    }
-    if(getShopSelectedNov != null && getShopSelected != null){
-        getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
-        localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
-    }
+if(getShopSelectedNov === null){
+    getShopSelectedfinal = getShopSelected;
+}
+if(getShopSelectedNov != null && getShopSelected != null){
+    getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
+    localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
 }
 
 
@@ -33,13 +27,13 @@ else{
 let fixList = [];
 const acomodarCarrito = () =>{
     
-    getShopSelectedfinal.forEach((comida) =>{
-        const elemento = finalShopList.find((prod)=> prod.id == comida.id)
+    getShopSelectedfinal.forEach((producto) =>{
+        const elemento = finalShopList.find((prod)=> prod.id == producto.id)
         if(elemento){
             elemento.units2 += 1
         }
         else{
-            fixList.push(comida)
+            fixList.push(producto)
         }
 
     })
