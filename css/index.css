@@ -54,8 +54,13 @@
     text-transform: uppercase;
     font-family: 'Roboto';
     font-family: 16px;
-    color: #FFF;
+    color: #FFFA;
     cursor: pointer;
+    transition: .25s;
+}
+
+.menu__item-link:hover{
+    color: #FFFF;
 }
 
 .shopLogo{
@@ -65,7 +70,14 @@
 .shopLogo-img{
     width: 24px;
     height: 24px;
+    color: #FFF;
+    opacity: .8;
+    transition: .25s;
 }
+.shopLogo-img:hover{
+    opacity: 1;
+}
+
 
 .shopLogoAddInner{
     position: absolute;

@@ -5,21 +5,9 @@ console.log('Cupones válidos: pikachu - evangelion - akirasushi')
 const selectionList = document.getElementById('selection-list');
 const selectionListInner = document.createElement('div');
 
-let getShopSelectedfinal;
 const getShopSelected = JSON.parse(localStorage.getItem("CarritoCarta")) ;
-const getShopSelectedNov = JSON.parse(localStorage.getItem("CarritoNov")) ;
-
-
-if(getShopSelected === null){
-    getShopSelectedfinal = getShopSelectedNov;
-}
-if(getShopSelectedNov === null){
-    getShopSelectedfinal = getShopSelected;
-}
-if(getShopSelectedNov != null && getShopSelected != null){
-    getShopSelectedfinal = getShopSelected.concat(getShopSelectedNov)
-    localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
-}
+let getShopSelectedfinal = getShopSelected;
+localStorage.setItem("CarritoActual", JSON.stringify(getShopSelectedfinal));
 
 
 // ORGANIZACIÓN DEL CARRITO -UNIFICACION DE PRODUCTOS SIMILARES-
@@ -63,7 +51,7 @@ const actualizarCarrito = () =>{
                 </div>
                 <p class="shop-selected__many-price">$${element.price * element.units2}</p>
                 <button onclick="eliminarDelCarrito(${element.id})" class="sushi-selected-trash">
-                    <img src="./assets/icons/as-trash.svg">
+                    <img src="./assets/icons/as-trash.svg" class="sushi-selected-trash-img">
                 </button>
                 </div>`
        
@@ -129,14 +117,29 @@ const realizarSubTotal = () =>{
 }
 realizarSubTotal()
 
+// ELIMINACION DEL STORAGE (CARRITOCARTA) 
+
+const eliminarDeStorageCC = (prodId) =>{
+    const pedidoDeStorageCarritoCarta = JSON.parse(localStorage.getItem("CarritoCarta"));
+    let itemsDeStorageCarritoCarta = pedidoDeStorageCarritoCarta
+    const element = itemsDeStorageCarritoCarta.find(prod => prod.id === prodId);
+    const indice = itemsDeStorageCarritoCarta.indexOf(element);
+    itemsDeStorageCarritoCarta.splice(indice,1)
+    localStorage.setItem("CarritoCarta", JSON.stringify(itemsDeStorageCarritoCarta))
+}
+
+
 // ELIMINACION DE ELEMENTOS 
 const eliminarDelCarrito = (prodId) =>{
     const item = finalShopList.find( (prod) => prod.id === prodId);
+
+
     if(item.units2 > 1){
         item.units2 -= 1
         actualizarCarrito();
         verSubTotal();
         realizarSubTotal();
+        eliminarDeStorageCC(prodId);
         if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
             totalPriceInner.innerHTML = ""
             aplicarDescuento10()
@@ -157,6 +160,7 @@ const eliminarDelCarrito = (prodId) =>{
         actualizarCarrito()
         verSubTotal()
         realizarSubTotal()
+        eliminarDeStorageCC(prodId);
         if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
             totalPriceInner.innerHTML = ""
             aplicarDescuento10()
@@ -179,6 +183,8 @@ const eliminarDelCarrito = (prodId) =>{
         } 
     }
 };
+
+
 
 // CUPONES
 const cuponInput = document.getElementById('enter-cupon-input');
@@ -220,7 +226,6 @@ const aplicarDescuento15 = () =>{
     finalMount = (pruebaSubTotal - cuponApli).toFixed(2);
     finalMountContainer.innerHTML = `$${finalMount}`
     totalPrice.append(finalMountContainer)
-    totalPrice.removeChild(totalPriceInner)
     sessionStorage.setItem("CuponAplicationName", "evangelion");
     sessionStorage.setItem("CuponAplicationType", "%15");
     sessionStorage.setItem("CuponAplicationPercentage", cuponApli);

@@ -183,13 +183,6 @@ const mostrarModal = () => {
     modalContainer.classList.add('modal-show');
 }
 
-// const compraFinalizada = document.getElementById('compraFinalizada');
-
-// compraFinalizada.addEventListener('click', () =>{
-//     localStorage.clear()
-//     sessionStorage.clear()
-// })
-
 
 //METODOS DE PAGO - MERCADO PAGO 
 const finalizarCompra = () =>{
@@ -217,7 +210,6 @@ const finalizarCompra = () =>{
     })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             window.location.replace(data.init_point)
         })
 
@@ -248,7 +240,6 @@ const finalizarCompra10off = () =>{
     })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             window.location.replace(data.init_point)
         })
 }
@@ -278,7 +269,6 @@ const finalizarCompra15off = () =>{
     })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             window.location.replace(data.init_point)
         })
 }
@@ -308,7 +298,6 @@ const finalizarCompra20off = () =>{
     })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             window.location.replace(data.init_point)
         })
 

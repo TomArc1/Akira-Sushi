@@ -89,10 +89,8 @@ form.addEventListener('submit', e => {
     }
 })
 
-// -------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------
+
+
 
 // TOASTER APLICACION
 
@@ -179,27 +177,27 @@ const notice = () => {
     }    
 }
 
-const thereIsCarrito = localStorage.getItem("CarritoNov");
+const thereIsCarrito = localStorage.getItem("CarritoCarta");
 if(thereIsCarrito != null){
     notice()
 }
 
 
 const agregarCarrito = (prodId) => {
-    const alreadyCarritoNov = localStorage.getItem("CarritoNov");
+    const alreadyCarritoNov = localStorage.getItem("CarritoCarta");
     if(alreadyCarritoNov !== null){
-        const newCarritoNov = JSON.parse(localStorage.getItem("CarritoNov"))
-        localStorage.removeItem("CarritoNov")
+        const newCarritoNov = JSON.parse(localStorage.getItem("CarritoCarta"))
+        localStorage.removeItem("CarritoCarta")
         const item = novedades.find( (prod) => prod.id === prodId )
         newCarritoNov.push(item);
-        localStorage.setItem("CarritoNov", JSON.stringify(newCarritoNov))
+        localStorage.setItem("CarritoCarta", JSON.stringify(newCarritoNov))
         notice()
 
     }
     else if(alreadyCarritoNov === null){
         const item = novedades.find( (prod) => prod.id === prodId )
         carrito.push(item)
-        localStorage.setItem("CarritoNov", JSON.stringify(carrito))
+        localStorage.setItem("CarritoCarta", JSON.stringify(carrito))
         notice()
 
     }

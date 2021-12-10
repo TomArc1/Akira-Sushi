@@ -118,7 +118,6 @@ const seleccionDePlatos = () =>{
             todaLaCarta = data;
             
            platos = data.filter((unidad)=> unidad.hotdishes == true )
-           console.log(platos)
 
            cardsContainer.innerHTML=""
 
