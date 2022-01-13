@@ -128,6 +128,8 @@ const eliminarDeStorageCC = (prodId) =>{
     localStorage.setItem("CarritoCarta", JSON.stringify(itemsDeStorageCarritoCarta))
 }
 
+let indirim;
+
 
 // ELIMINACION DE ELEMENTOS 
 const eliminarDelCarrito = (prodId) =>{
@@ -141,16 +143,19 @@ const eliminarDelCarrito = (prodId) =>{
         realizarSubTotal();
         eliminarDeStorageCC(prodId);
         if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento10()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.10;
+            aplicarDescuento()
         }
         if(sessionStorage.getItem("CuponAplicationName") == "evangelion"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento15()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.15;
+            aplicarDescuento();
         }
         if(sessionStorage.getItem("CuponAplicationName") == "akirasushi"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento20()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.20;
+            aplicarDescuento();
         }
         localStorage.setItem("CarritoActual", JSON.stringify(finalShopList));
     }
@@ -162,16 +167,19 @@ const eliminarDelCarrito = (prodId) =>{
         realizarSubTotal()
         eliminarDeStorageCC(prodId);
         if(sessionStorage.getItem("CuponAplicationName") == "pikachu"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento10()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.10;
+            aplicarDescuento();
         }
         if(sessionStorage.getItem("CuponAplicationName") == "evangelion"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento15()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.15;
+            aplicarDescuento();
         }
         if(sessionStorage.getItem("CuponAplicationName") == "akirasushi"){
-            totalPriceInner.innerHTML = ""
-            aplicarDescuento20()
+            totalPriceInner.innerHTML = "";
+            indirim = 0.20;
+            aplicarDescuento();
         }
         localStorage.setItem("CarritoActual", JSON.stringify(finalShopList));
         if(finalShopList.length == 0){
@@ -197,55 +205,43 @@ let cuponApli;
 let finalMount;
 const finalMountContainer = document.createElement('div')
 
-const tenOff = (amount) => (amount * 0.10).toFixed(2);
-const fifteenOff = (amount) => (amount * 0.15).toFixed(2);
-const twentyOff = (amount) => (amount * 0.20).toFixed(2);
 
-const aplicarDescuento10 = () =>{
-    cuponApli = tenOff(pruebaSubTotal);
-    cuponPercentageInner.innerHTML = `<p>% 10</p>` 
-    cuponPercentage.append(cuponPercentageInner)
-    cuponDescInner.innerHTML = `-$${cuponApli}`
-    cuponDesc.append(cuponDescInner);
-    totalPrice.removeChild(totalPriceInner)
-    finalMount = (pruebaSubTotal - cuponApli).toFixed(2);
-    finalMountContainer.innerHTML = `$${finalMount}`
-    totalPrice.append(finalMountContainer)
-    sessionStorage.setItem("CuponAplicationName", "pikachu");
-    sessionStorage.setItem("CuponAplicationType", "%10");
-    sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
-    sessionStorage.setItem("FinalMount", finalMount);
-}
-const aplicarDescuento15 = () =>{
-    cuponApli = fifteenOff(pruebaSubTotal)
-    cuponPercentageInner.innerHTML = `<p>% 15</p>` 
-    cuponPercentage.append(cuponPercentageInner)
-    cuponDescInner.innerHTML = `-$${cuponApli}`
-    cuponDesc.append(cuponDescInner);
-    totalPrice.removeChild(totalPriceInner)
-    finalMount = (pruebaSubTotal - cuponApli).toFixed(2);
-    finalMountContainer.innerHTML = `$${finalMount}`
-    totalPrice.append(finalMountContainer)
-    sessionStorage.setItem("CuponAplicationName", "evangelion");
-    sessionStorage.setItem("CuponAplicationType", "%15");
-    sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
-    sessionStorage.setItem("FinalMount", finalMount);
 
-}
-const aplicarDescuento20 = () => {
-    cuponApli = twentyOff(pruebaSubTotal)
-    cuponPercentageInner.innerHTML = `<p>% 20</p>` 
-    cuponPercentage.append(cuponPercentageInner)
-    cuponDescInner.innerHTML = `-$${cuponApli}`
+const cuponTypes = (amount, indirim) =>{ return (amount * indirim).toFixed(2)};
+
+const aplicarDescuento = () =>{
+    cuponApli = cuponTypes(pruebaSubTotal, indirim);
+    if(indirim == 0.10){
+        sessionStorage.setItem("CuponAplicationName", "pikachu");
+        sessionStorage.setItem("CuponAplicationType", "%10");
+        sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
+        sessionStorage.setItem("FinalMount", finalMount);
+        cuponPercentageInner.innerHTML = `<p>% 10</p>` 
+
+    }
+    if(indirim == 0.15){
+        sessionStorage.setItem("CuponAplicationName", "evangelion");
+        sessionStorage.setItem("CuponAplicationType", "%15");
+        sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
+        sessionStorage.setItem("FinalMount", finalMount);
+        cuponPercentageInner.innerHTML = `<p>% 15</p>` 
+
+    }
+    if(indirim == 0.20){
+        sessionStorage.setItem("CuponAplicationName", "akirasushi");
+        sessionStorage.setItem("CuponAplicationType", "%20");
+        sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
+        sessionStorage.setItem("FinalMount", finalMount);
+        cuponPercentageInner.innerHTML = `<p>% 20</p>` 
+    }
+    cuponPercentage.append(cuponPercentageInner);
+    cuponDescInner.innerHTML = `-$${cuponApli}`;
     cuponDesc.append(cuponDescInner);
-    totalPrice.removeChild(totalPriceInner)
+    totalPrice.removeChild(totalPriceInner);
     finalMount = (pruebaSubTotal - cuponApli).toFixed(2);
-    finalMountContainer.innerHTML = `$${finalMount}`
+    finalMountContainer.innerHTML = `$${finalMount}`;
     totalPrice.append(finalMountContainer);
-    sessionStorage.setItem("CuponAplicationName", "akirasushi");
-    sessionStorage.setItem("CuponAplicationType", "%20");
-    sessionStorage.setItem("CuponAplicationPercentage", cuponApli);
-    sessionStorage.setItem("FinalMount", finalMount);
+    
 }
 
 
@@ -261,7 +257,8 @@ cuponBtn.addEventListener('click', (e) =>{
             spanWarning.classList.add('show--spanWarning')
         }
         else{
-            aplicarDescuento10()
+            indirim = 0.10;
+            aplicarDescuento()
 
         }  
     }
@@ -271,7 +268,8 @@ cuponBtn.addEventListener('click', (e) =>{
             spanWarning.classList.add('show--spanWarning')
         }
         else{
-            aplicarDescuento15()
+            indirim = 0.15;
+            aplicarDescuento()
         }
     }
     else if(cuponInput.value == "akirasushi"){
@@ -280,7 +278,8 @@ cuponBtn.addEventListener('click', (e) =>{
             spanWarning.classList.add('show--spanWarning')
         }
         else{
-            aplicarDescuento20()
+            indirim = 0.20;
+            aplicarDescuento()
         }
 
     }

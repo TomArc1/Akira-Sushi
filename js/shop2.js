@@ -185,6 +185,7 @@ const mostrarModal = () => {
 
 
 //METODOS DE PAGO - MERCADO PAGO 
+
 const finalizarCompra = () =>{
 
     const compraConMP = finalShopList.map((prod) =>{
@@ -215,8 +216,9 @@ const finalizarCompra = () =>{
 
 }
 
-const finalizarCompra10off = () =>{
 
+const finalizarCompraOff = (valorDescuento) =>{
+    
     const compraConMP = finalShopList.map((prod) =>{
         return{
             title: prod.name2,
@@ -225,9 +227,10 @@ const finalizarCompra10off = () =>{
             category_id: prod.id,
             quantity: prod.units2,
             currency_id: "ARS",
-            unit_price: (prod.price - ((prod.price * 10)/100))
+            unit_price: (prod.price - ((prod.price * valorDescuento)/100))
         }
     })
+
 
     fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
@@ -243,80 +246,20 @@ const finalizarCompra10off = () =>{
             window.location.replace(data.init_point)
         })
 }
-
-const finalizarCompra15off = () =>{
-
-    const compraConMP = finalShopList.map((prod) =>{
-        return{
-            title: prod.name2,
-            description: "",
-            picture_url: "",
-            category_id: prod.id,
-            quantity: prod.units2,
-            currency_id: "ARS",
-            unit_price: (prod.price - ((prod.price * 15)/100))
-        }
-    })
-
-    fetch('https://api.mercadopago.com/checkout/preferences', {
-        method: 'POST',
-        headers:{
-            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
-        },
-        body: JSON.stringify({
-            items: compraConMP
-        })
-    })
-        .then(resp => resp.json())
-        .then(data => {
-            window.location.replace(data.init_point)
-        })
-}
-
-const finalizarCompra20off = () =>{
-
-    const compraConMP = finalShopList.map((prod) =>{
-        return{
-            title: prod.name2,
-            description: "",
-            picture_url: "",
-            category_id: prod.id,
-            quantity: prod.units2,
-            currency_id: "ARS",
-            unit_price: (prod.price - ((prod.price * 20)/100))
-        }
-    })
-
-    fetch('https://api.mercadopago.com/checkout/preferences', {
-        method: 'POST',
-        headers:{
-            Authorization: 'Bearer TEST-7500855002676514-112121-e8148726a9801961fcc3cf8ff3e46cb3-263431981'
-        },
-        body: JSON.stringify({
-            items: compraConMP
-        })
-    })
-        .then(resp => resp.json())
-        .then(data => {
-            window.location.replace(data.init_point)
-        })
-
-}
-
 
 
 formularioCompleto.addEventListener('submit', (e)=>{
     e.preventDefault()
     if(sessionStorage.getItem("eligeMP")){
         if(sessionStorage.getItem("CuponAplicationName") == "pikachu" ){
-            finalizarCompra10off()
+            finalizarCompraOff(10);
         }
         else if(sessionStorage.getItem("CuponAplicationName") == "evangelion" ){
-            finalizarCompra15off()
+            finalizarCompraOff(15);
     
         }
         else if( sessionStorage.getItem("CuponAplicationName") == "akirasushi" ){
-            finalizarCompra20off()
+            finalizarCompraOff(20);
     
         }
         else{
